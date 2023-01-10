@@ -10,7 +10,7 @@ jobs:
     - name: Build HTML
       uses: ammaraskar/sphinx-action@master
       with:
-        pre-build-command: "apt-get update -y && apt-get install -y ffmpeg libsm6 libxext6"
+        pre-build-command: "apt-get update && apt-get install ffmpeg libsm6 libxext6 -y"
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
