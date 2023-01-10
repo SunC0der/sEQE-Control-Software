@@ -44,7 +44,6 @@ Feel free to reach out to the AFMD group if you have any ideas for further impro
 
    README
    hardware
-   usage
    modules
    contact
    licence
