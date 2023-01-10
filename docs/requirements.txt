@@ -1,2 +1,2 @@
 sphinx-rtd-theme==1.0.0
-sphinxcontrib-pdfembed
+git+git://github.com/SuperKogito/sphinxcontrib-pdfembed
