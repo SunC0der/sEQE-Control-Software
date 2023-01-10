@@ -26,7 +26,7 @@ extensions = [
    'sphinx.ext.autosummary',
    'sphinx.ext.napoleon',
    'sphinx.ext.viewcode',
-   'sphinxcontrib.pdfembed',
+#   'sphinxcontrib.pdfembed',
    'sphinx.ext.autosectionlabel',
    'sphinx.ext.githubpages',
 
