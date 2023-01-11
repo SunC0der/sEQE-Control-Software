@@ -7,12 +7,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    
+    - name: Preinstall ubuntu packages
+        run: |
+          apt-get update && apt get upgrade
+          apt-get install python3-sphinx
+    - name: directly build sphinx
+        run: |
+          pip install -r requirements.txt
+          sphinx-build -D todo_include_todos=0 docs ./docs/_build/html/
 
-    - name: Build HTML
-      uses: ammaraskar/sphinx-action@master
-      with:
-        docs-folder: "docs/"
-        pre-build-command: "apt-get update -y && apt-get -y install ffmpeg libsm6 libxext6 libgl1-mesa-glx libgl1-mesa-dev mesa-common-dev libglu1-mesa-dev python3-opencv libgl1 python3-pyqt5"
+  #  - name: Build HTML
+  #    uses: ammaraskar/sphinx-action@master
+  #    with:
+  #      docs-folder: "docs/"
+  #      pre-build-command: "apt-get update -y && apt-get -y install ffmpeg libsm6 libxext6 libgl1-mesa-glx libgl1-mesa-dev mesa-common-dev libglu1-mesa-dev python3-opencv libgl1 python3-pyqt5"
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
