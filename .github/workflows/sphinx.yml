@@ -10,8 +10,8 @@ jobs:
     
     - name: Preinstall ubuntu packages
       run: |
-        apt-get update && apt get upgrade
-        apt-get install python3-sphinx
+        sudo apt-get update && apt get upgrade
+        sudo apt-get install python3-sphinx
     - name: directly build sphinx
       run: |
         pip install -r requirements.txt
