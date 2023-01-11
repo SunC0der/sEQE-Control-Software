@@ -32,6 +32,8 @@ extensions = [
 #   'sphinxcontrib.pdfembed',
    'sphinx.ext.autosectionlabel',
    'sphinx.ext.githubpages',
+   'sphinx.ext.intersphinx',
+   'sphinx_qt_documentation',
 
 ]
 
