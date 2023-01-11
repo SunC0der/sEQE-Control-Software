@@ -12,7 +12,7 @@ jobs:
       uses: ammaraskar/sphinx-action@master
       with:
         docs-folder: "docs/"
-        pre-build-command: "apt-get update -y && apt-get -y install ffmpeg libsm6 libxext6 libgl1-mesa-glx libgl1 python3-pyqt5"
+        pre-build-command: "apt-get update -y && apt-get -y install ffmpeg libsm6 libxext6 libgl1-mesa-glx libgl1-mesa-dev libgl1 python3-pyqt5"
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
