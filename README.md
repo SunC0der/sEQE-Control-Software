@@ -1,5 +1,5 @@
 # sEQE-Control-Software
-Software to control sensitive external quantum efficiency setup in AFMD Group.
+Software to control sensitive external quantum efficiency setup of AFMD Group.
 
 1. Clone the git repository
 
