@@ -1,1 +1,7 @@
 sphinx-rtd-theme
+PyQt5==5.15.4 
+pyserial==3.5
+zhinst==22.8.1
+zhinst-core==22.8.35048
+zhinst-toolkit==0.4.1
+zhinst-utils==0.1.0
