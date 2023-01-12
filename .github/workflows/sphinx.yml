@@ -8,14 +8,39 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Preinstall ubuntu packages
+    - name: Setup Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.9'
+
+    - name: Upgrade pip
+      run: |
+        # install pip=>20.1 to use "pip cache dir"
+        python3 -m pip install --upgrade pip
+
+    - name: Get pip cache dir
+      id: pip-cache
+      run: echo "dir=$(pip cache dir)" >> $GITHUB_OUTPUT
+
+    - name: Cache dependencies
+      uses: actions/cache@v3
+      with:
+        path: ${{ steps.pip-cache.outputs.dir }}
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+
+    - name: Install dependencies
+      run: python3 -m pip install -r docs/requirements.txt    
+    
+    - name: Install ubuntu packages
       run: |
         sudo apt-get update
         sudo apt-get install python3-sphinx
+    
     - name: directly build sphinx
       run: |
-        pip install -r docs/requirements.txt
-        sphinx-build -D todo_include_todos=0 docs/source ./docs/_build/html/
+        sphinx-build -b html docs/source docs/build/html
 
 #    - name: Build HTML
  #     uses: erpcya/sphinx-action@master
@@ -23,11 +48,11 @@ jobs:
   #      docs-folder: "docs/"
   #      pre-build-command: "apt-get update -y && apt-get -y install ffmpeg libsm6 libxext6 libgl1-mesa-glx libgl1-mesa-dev mesa-common-dev libglu1-mesa-dev python3-opencv libgl1 python3-pyqt5"
 
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: html-docs
-        path: docs/build/html/
+ #   - name: Upload artifacts
+ #     uses: actions/upload-artifact@v3
+ #     with:
+ #       name: html-docs
+  #      path: docs/build/html/
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       if: github.ref == 'refs/heads/main'
