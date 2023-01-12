@@ -46,7 +46,14 @@
 <li class="toctree-l1"><a class="reference internal" href="hardware.html">Hardware</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">sEQE-Control-Software</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="GUI_template.html">GUI_template module</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">lockin module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">lockin module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lockin.LockIn"><code class="docutils literal notranslate"><span class="pre">LockIn</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lockin.LockIn.connect"><code class="docutils literal notranslate"><span class="pre">LockIn.connect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lockin.LockIn.setParameters"><code class="docutils literal notranslate"><span class="pre">LockIn.setParameters()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="monochromator.html">monochromator module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sEQE.html">sEQE module</a></li>
 </ul>
@@ -80,8 +87,53 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="lockin-module">
-<h1>lockin module<a class="headerlink" href="#lockin-module" title="Permalink to this heading"></a></h1>
+  <section id="module-lockin">
+<span id="lockin-module"></span><h1>lockin module<a class="headerlink" href="#module-lockin" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="lockin.LockIn">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lockin.</span></span><span class="sig-name descname"><span class="pre">LockIn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lockin.html#LockIn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lockin.LockIn" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lockin.LockIn.connect">
+<span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/lockin.html#LockIn.connect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lockin.LockIn.connect" title="Permalink to this definition"></a></dt>
+<dd><p>Function to establish connection to Lockin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Zurich Instruments localhost name, device details and True if device is connected</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lockin.LockIn.setParameters">
+<span class="sig-name descname"><span class="pre">setParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">diff_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diff</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imp50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imp50_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ac</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Range</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lowpass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amplification</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/lockin.html#LockIn.setParameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lockin.LockIn.setParameters" title="Permalink to this definition"></a></dt>
+<dd><p>Function to set default Lockin parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>diff</strong> (<em>int</em><em>, </em><em>required</em>) – Boolean representation to turn differentiale mode on and off: default: 1</p></li>
+<li><p><strong>imp50</strong> (<em>int</em><em>, </em><em>required</em>) – Boolean representation to turn 50 Ohm impedance(?) on or off, default: 0</p></li>
+<li><p><strong>imp50_2</strong> (<em>int</em><em>,</em><em>required</em>) – Boolean representation to turn on 50 Ohm on channel 2 to attenuate signal from chopper controller as reference signal, default: 1</p></li>
+<li><p><strong>ac</strong> (<em>int</em><em>, </em><em>required</em>) – Boolean representation to turn AC voltage on or off, default: 0</p></li>
+<li><p><strong>Range</strong> (<em>int</em><em>, </em><em>required</em>) – Voltage range for measurement, default: 2V</p></li>
+<li><p><strong>lowpass</strong> (<em>int</em><em>, </em><em>required</em>) – low pass filter order</p></li>
+<li><p><strong>rate</strong> (<em>int</em><em>, </em><em>required</em>) – data transfer rate</p></li>
+<li><p><strong>tc</strong> (<em>int</em><em>, </em><em>required</em>) – time constant for measurement</p></li>
+<li><p><strong>c_2</strong> (<em>str</em><em>, </em><em>required</em>) – Channel 2, with value 1, for the reference input</p></li>
+<li><p><strong>amplification</strong> (<em>int</em><em>, </em><em>required</em>) – Lock-in amplification of the signal</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
 
