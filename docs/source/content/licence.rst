@@ -3,6 +3,7 @@ Acknowledgements and Linceses
 
 List of main AFMD contributors
 ------------------------------
+
 Dr. Anna Jungbluth: Creator of sEQE hardware, control software and analysis software
 Ming Zhu: Developer of sEQE control software and analysis software ; Current main user
 Maximilian Hanauske: Developer of sEQE control software; Creator of sEQE setup documentation
