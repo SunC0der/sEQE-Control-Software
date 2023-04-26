@@ -14,7 +14,7 @@ Acknowledgments
 
 Furthermore we want to thank all the people who have contributed to the sEQE measurement setup throughout the years:
 
-Prof. Dr. Moritz Riede: For his unwavering guidance, wisdom and ideas and his contribution to the sEQE paper
+Prof. Dr. Moritz Riede: For his kind guidance, wisdom, ideas and his contribution to the sEQE paper
 Dr. Pascal Kaienburg: For his support regarding any questions of physical or engineering nature, his contribution to the sEQE paper and his user feedback
 Irfan Habib: For his reliable and constructive user feedback
 Kate Trinkhaus: Creator of an AFMD Logo which might be used in the future documentation
